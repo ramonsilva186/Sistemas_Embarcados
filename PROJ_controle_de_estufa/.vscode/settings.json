@@ -1,0 +1,41 @@
+{
+    "C_Cpp.intelliSenseEngine": "Tag Parser",
+    "idf.adapterTargetName": "esp32",
+    "idf.customExtraPaths": "C:\\Users\\allan\\.espressif\\tools\\xtensa-esp32-elf\\esp-2021r2-patch3-8.4.0\\xtensa-esp32-elf\\bin;C:\\Users\\allan\\.espressif\\tools\\xtensa-esp32s2-elf\\esp-2021r2-patch3-8.4.0\\xtensa-esp32s2-elf\\bin;C:\\Users\\allan\\.espressif\\tools\\xtensa-esp32s3-elf\\esp-2021r2-patch3-8.4.0\\xtensa-esp32s3-elf\\bin;C:\\Users\\allan\\.espressif\\tools\\riscv32-esp-elf\\esp-2021r2-patch3-8.4.0\\riscv32-esp-elf\\bin;C:\\Users\\allan\\.espressif\\tools\\esp32ulp-elf\\2.28.51-esp-20191205\\esp32ulp-elf-binutils\\bin;C:\\Users\\allan\\.espressif\\tools\\esp32s2ulp-elf\\2.28.51-esp-20191205\\esp32s2ulp-elf-binutils\\bin;C:\\Users\\allan\\.espressif\\tools\\cmake\\3.23.1\\bin;C:\\Users\\allan\\.espressif\\tools\\openocd-esp32\\v0.11.0-esp32-20220411\\openocd-esp32\\bin;C:\\Users\\allan\\.espressif\\tools\\ninja\\1.10.2;C:\\Users\\allan\\.espressif\\tools\\idf-exe\\1.0.3;C:\\Users\\allan\\.espressif\\tools\\ccache\\4.3\\ccache-4.3-windows-64;C:\\Users\\allan\\.espressif\\tools\\dfu-util\\0.9\\dfu-util-0.9-win64",
+    "idf.customExtraVars": "{\"OPENOCD_SCRIPTS\":\"C:\\\\Users\\\\allan\\\\.espressif\\\\tools\\\\openocd-esp32\\\\v0.11.0-esp32-20220411/openocd-esp32/share/openocd/scripts\",\"IDF_CCACHE_ENABLE\":\"1\"}",
+    "idf.espIdfPathWin": "C:\\Users\\allan\\esp\\esp-idf",
+    "idf.openOcdConfigs": [
+        "interface/ftdi/esp32_devkitj_v1.cfg",
+        "target/esp32.cfg"
+    ],
+    "idf.portWin": "COM5",
+    "idf.pythonBinPathWin": "C:\\Users\\allan\\.espressif\\python_env\\idf4.4_py3.8_env\\Scripts\\python.exe",
+    "idf.toolsPathWin": "C:\\Users\\allan\\.espressif",
+    "files.associations": {
+        "nvs_flash.h": "c",
+        "esp_tls_crypto.h": "c",
+        "esp_http_server.h": "c",
+        "stdio.h": "c",
+        "task.h": "c",
+        "server-web.h": "c",
+        "*.inc": "c",
+        "esp_wifi.h": "c",
+        "freertos.h": "c",
+        "protocol_examples_common.h": "c",
+        "*.mk": "c",
+        "dht.h": "c",
+        "string.h": "c",
+        "array": "c",
+        "*.tcc": "c",
+        "memory": "c",
+        "future": "c",
+        "istream": "c",
+        "functional": "c",
+        "tuple": "c",
+        "utility": "c",
+        "random": "c",
+        "ldr_lux.h": "c",
+        "gpio.h": "c"
+    },
+    "idf.flashType": "UART"
+}
