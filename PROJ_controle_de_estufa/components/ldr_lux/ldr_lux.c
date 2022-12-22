@@ -1,28 +1,20 @@
-/* ADC2 Example
-
-   This example code is in the Public Domain (or CC0 licensed, at your option.)
-
-   Unless required by applicable law or agreed to in writing, this
-   software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-   CONDITIONS OF ANY KIND, either express or implied.
-*/
 #include <stdio.h>
 #include <stdlib.h>
+#include "math.h"
+#include "driver/adc.h"
+#include "esp_adc_cal.h"
+#include <esp_system.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-#include "freertos/queue.h"
-#include "driver/gpio.h"
-#include "driver/adc.h"
-#include "driver/dac.h"
-#include "esp_system.h"
-#include "math.h"
-#include "esp_log.h"
-
-static const char *TAG = "main";
+#include <esp_log.h>
 
 #define delay(value) vTaskDelay(value * portTICK_PERIOD_MS)
-#define ADC_CHANNEL ADC2_CHANNEL_7
-#define ADC_ATTEN ADC_ATTEN_11db
+#define ATTEN ADC_ATTEN_11db
+#define WIDTH ADC_WIDTH_BIT_12
+
+extern const adc1_channel_t LDR;
+
+static const char *TAG = "LDR_LUX";
 
 static const int MAX_ADC_READING = 4095;
 static const int ADC_REF_VOLTAGE = 5;
@@ -30,9 +22,15 @@ static const int REF_RESISTANCE = 7645;
 static const int LUX_CALC_SCALAR = 12518931 ;
 static const int LUX_CALC_EXPONENT = -1.405;
 
-static const adc_bits_width_t width = ADC_WIDTH_BIT_12;
+uint32_t voltage;
 
-void calcularLux(int raw, int *lux){
+void ldr_lux_setup(){
+    ESP_ERROR_CHECK(adc1_config_width(WIDTH));
+    ESP_ERROR_CHECK(adc1_config_channel_atten(LDR, ATTEN));
+}
+
+
+void calcular_lux(int raw, int *lux){
     float resistorVoltage = (float)raw / MAX_ADC_READING * ADC_REF_VOLTAGE;
     float ldrVoltage = ADC_REF_VOLTAGE - resistorVoltage;
     float ldrResistance = ldrVoltage/resistorVoltage * REF_RESISTANCE; 
@@ -40,15 +38,11 @@ void calcularLux(int raw, int *lux){
     *lux = ldrLux;
 }
 
-
-void getLux(int* variavel_lux){
-
-    printf("Calculando Get Lux");
-    int read_raw;
-    adc2_config_channel_atten( ADC_CHANNEL, ADC_ATTEN );
+void get_lux(int *lux){
+    
+    int raw_value = adc1_get_raw(LDR);
+    calcular_lux(raw_value, lux);
+    ESP_LOGI(TAG, "Valor lido: %d |\t V: %.2f |\t lux: %d", raw_value, (raw_value/4095.0) * 5.0, *lux);
     delay(2);
-    printf("start conversion.\n");
 
-    adc2_get_raw( ADC_CHANNEL, width, &read_raw);
-    calcularLux(read_raw, &variavel_lux);
-    ESP_LOGI(TAG, "Valor lido: %d |\t V: %f |\t lux: %d", read_raw, (read_raw/4095.0) * 5.0,
+}

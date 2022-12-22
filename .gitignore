@@ -58,8 +58,7 @@ baseline.json
 .husky/_
 aio/content/examples/.DS_Store
 
-./build
 
-./PROJ_controle_de_estufa/build/*
+PROJ_controle_de_estufa/build/*
 
-./esp-idf-lib-master/*
+esp-idf-lib-master/*

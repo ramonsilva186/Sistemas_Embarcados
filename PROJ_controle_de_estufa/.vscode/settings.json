@@ -35,7 +35,18 @@
         "utility": "c",
         "random": "c",
         "ldr_lux.h": "c",
-        "gpio.h": "c"
+        "gpio.h": "c",
+        "*.ipp": "cpp",
+        "server-http.h": "c",
+        "optional": "c",
+        "ostream": "c",
+        "ratio": "c",
+        "system_error": "c",
+        "regex": "c",
+        "type_traits": "c",
+        "cmath": "c",
+        "complex": "c",
+        "esp_adc_cal.h": "c"
     },
     "idf.flashType": "UART"
 }
