@@ -59,3 +59,7 @@ baseline.json
 aio/content/examples/.DS_Store
 
 ./build
+
+./PROJ_controle_de_estufa/build/*
+
+./esp-idf-lib-master/*
